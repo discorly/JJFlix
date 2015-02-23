@@ -14,7 +14,7 @@ import org.sikuli.api.robot.desktop.DesktopMouse;
  * @author KIMP
  */
 public class JJflix {   
-    Target flixBtn = new ImageTarget(new File("jjflix.png"));
+    Target flixBtn = new ImageTarget(new File("JJFlix.png"));
     ScreenRegion fullScreen = new DesktopScreenRegion();
     
     Mouse mouse = new DesktopMouse();
