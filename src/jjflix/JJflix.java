@@ -34,13 +34,8 @@ public class JJflix {
     
     public void loopButton() {
         for(int i = 0; i < 1000; i++) {
-            try {
-                findButton();
-                Thread.sleep(10000);
-            } catch (InterruptedException e) {
-                System.out.println(e.getMessage());
-            }
-            
+            findButton();
+            sleep();
         }
     }
     
@@ -48,12 +43,18 @@ public class JJflix {
         try {
             flix.find(flixBtn);
             mouse.click(fullScreen.getCenter());
+            System.out.println("Found");
         } catch(NullPointerException e) {
             System.out.println(e.getMessage());
         }
-        
-        //flix.find(flixBtn);
-        //mouse.click(fullScreen.getCenter());
+    }
+    
+    public void sleep() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            System.out.println();
+        }
     }
     
 }
