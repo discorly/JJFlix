@@ -16,12 +16,8 @@ import org.sikuli.api.robot.desktop.DesktopMouse;
 public class JJflix {   
     Target flixBtn = new ImageTarget(new File("jjflix.png"));
     ScreenRegion fullScreen = new DesktopScreenRegion();
-        
-    Mouse mouse = new DesktopMouse();
     
-    //Make the mouse click the button, not below it.
-    ScreenLocation f = Relative.to(fullScreen).center().getScreenLocation();
-    ScreenLocation p = Relative.to(f).above(20).getScreenLocation();
+    Mouse mouse = new DesktopMouse();
     
     public JJflix() {
         loopButton();
@@ -43,8 +39,8 @@ public class JJflix {
     public void findButton() {
         try {
             ScreenRegion flix = fullScreen.find(flixBtn);
-            flix.find(flixBtn);
-            mouse.click(p);
+            ScreenRegion found = fullScreen.wait(flixBtn,5000);
+            mouse.click(found.getCenter());
             System.out.println("Found");
         } catch(NullPointerException e) {
             System.out.println(e.getMessage());
@@ -53,7 +49,7 @@ public class JJflix {
     
     public void sleep() {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }
