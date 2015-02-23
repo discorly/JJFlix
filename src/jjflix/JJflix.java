@@ -35,7 +35,6 @@ public class JJflix {
     }
     
     public void loopButton() {
-        found = 0;
         for(int i = 0; i < 1000; i++) {
             findButton();
             sleep();
@@ -49,12 +48,6 @@ public class JJflix {
             System.out.println("Found");
         } catch(NullPointerException e) {
             System.out.println(e.getMessage());
-        }
-        
-        if(flix.find(flixBtn) != null) {
-            found = 1;
-        } else {
-            loopButton();
         }
     }
     
