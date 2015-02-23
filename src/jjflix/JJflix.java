@@ -8,7 +8,6 @@ import org.sikuli.api.*;
 import java.io.File;
 import org.sikuli.api.robot.Mouse;
 import org.sikuli.api.robot.desktop.DesktopMouse;
-import javax.swing.JFrame;
 
 /**
  *
