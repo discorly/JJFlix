@@ -18,11 +18,11 @@ public class JJflix {
     Target flixBtn = new ImageTarget(new File("jjflix.png"));
     ScreenRegion fullScreen = new DesktopScreenRegion();
         
-    ScreenRegion flix = fullScreen.find(flixBtn);
-        
     Mouse mouse = new DesktopMouse();
     
-    int found = 0;
+    //Make the mouse click the button, not below it.
+    ScreenLocation f = Relative.to(fullScreen).center().getScreenLocation();
+    ScreenLocation p = Relative.to(f).above(20).getScreenLocation();
     
     public JJflix() {
         loopButton();
@@ -43,8 +43,9 @@ public class JJflix {
     
     public void findButton() {
         try {
+            ScreenRegion flix = fullScreen.find(flixBtn);
             flix.find(flixBtn);
-            mouse.click(fullScreen.getCenter());
+            mouse.click(p);
             System.out.println("Found");
         } catch(NullPointerException e) {
             System.out.println(e.getMessage());
@@ -55,7 +56,7 @@ public class JJflix {
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
-            System.out.println();
+            System.out.println(e.getMessage());
         }
     }
     
