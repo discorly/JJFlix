@@ -48,7 +48,6 @@ public class JJflix {
         try {
             flix.find(flixBtn);
             mouse.click(fullScreen.getCenter());
-            System.out.println("Found!");
         } catch(NullPointerException e) {
             System.out.println(e.getMessage());
         }
