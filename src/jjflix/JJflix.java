@@ -8,18 +8,23 @@ import org.sikuli.api.*;
 import java.io.File;
 import org.sikuli.api.robot.Mouse;
 import org.sikuli.api.robot.desktop.DesktopMouse;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  *
  * @author KIMP
  */
 public class JJflix {   
-    Target flixBtn = new ImageTarget(new File("JJFlix.png"));
     ScreenRegion fullScreen = new DesktopScreenRegion();
+    
+    List<Target> targets = new ArrayList<Target>();
     
     Mouse mouse = new DesktopMouse();
     
     public JJflix() {
+        targetsToArray();
         loopButton();
     }
     /**
@@ -31,16 +36,17 @@ public class JJflix {
     
     public void loopButton() {
         for(int i = 0; i < 1000; i++) {
-            findButton();
+            for(Target t: targets) {
+                findButton(t);
+            }
             sleep();
         }
     }
     
-    public void findButton() {
+    public void findButton(Target t) {
         try {
-            ScreenRegion flix = fullScreen.find(flixBtn);
-            ScreenRegion found = fullScreen.wait(flixBtn,5000);
-            mouse.click(found.getCenter());
+            ScreenRegion flix = fullScreen.find(t);
+            mouse.click(flix.getCenter());
             System.out.println("Found");
         } catch(NullPointerException e) {
             System.out.println(e.getMessage());
@@ -55,6 +61,12 @@ public class JJflix {
         }
     }
     
+    public void targetsToArray() {
+        Target flixBtn = new ImageTarget(new File("JJFlix.png"));
+        Target flixBtnFullscreen = new ImageTarget(new File("JJFlixfullscreen.png"));
+        targets.add(flixBtn);
+        targets.add(flixBtnFullscreen);
+    }
 }
 
 
