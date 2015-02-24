@@ -6,12 +6,12 @@ Simply run it in the background when you watch Netflix.
 #Currently supported:
 Resolutions:
 
--1600x900
+- 1600x900
 
--1920x1080
+- 1920x1080
 
 Languages:
 
--Swedish
+- Swedish
 
 Want features or your language/resolution supported? Message me
