@@ -9,7 +9,6 @@ import java.io.File;
 import org.sikuli.api.robot.Mouse;
 import org.sikuli.api.robot.desktop.DesktopMouse;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
