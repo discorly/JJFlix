@@ -17,61 +17,17 @@ import javax.swing.*;
  * @author KIMP
  */
 public class JJflix {
-    ScreenRegion fullScreen = new DesktopScreenRegion();
-    
-    private JJFrame jflxFrame;
-
-    List<Target> targets = new ArrayList<Target>();
-    
-    Mouse mouse = new DesktopMouse();
-    
+    private NewJFrame jflx;
     
     public JJflix() {
-        jflxFrame = new JJFrame();
-        jflxFrame.pack();
-        jflxFrame.setVisible(true);
-        targetsToArray();
+        jflx = new NewJFrame();
+        jflx.setVisible(true);
     }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         JJflix jjflix = new JJflix();
-    }
-    
-    
-    public void loopButton() {
-        for(int i = 0; i < 1000; i++) {
-            for(Target t: targets) {
-                findButton(t);
-            }
-            sleep();
-        }
-    }
-    
-    public void findButton(Target t) {
-        try {
-            ScreenRegion flix = fullScreen.find(t);
-            mouse.click(flix.getCenter());
-            System.out.println("Found");
-        } catch(NullPointerException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    
-    public void sleep() {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    
-    public void targetsToArray() {
-        Target flixBtn = new ImageTarget(new File("JJFlix.png"));
-        Target flixBtnFullscreen = new ImageTarget(new File("JJFlixfullscreen.png"));
-        targets.add(flixBtn);
-        targets.add(flixBtnFullscreen);
     }
 }
 
