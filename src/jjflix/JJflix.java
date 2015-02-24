@@ -10,21 +10,27 @@ import org.sikuli.api.robot.Mouse;
 import org.sikuli.api.robot.desktop.DesktopMouse;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.*;
 
 /**
  *
  * @author KIMP
  */
-public class JJflix {   
+public class JJflix {
     ScreenRegion fullScreen = new DesktopScreenRegion();
     
+    private JJFrame jflxFrame;
+
     List<Target> targets = new ArrayList<Target>();
     
     Mouse mouse = new DesktopMouse();
     
+    
     public JJflix() {
+        jflxFrame = new JJFrame();
+        jflxFrame.pack();
+        jflxFrame.setVisible(true);
         targetsToArray();
-        loopButton();
     }
     /**
      * @param args the command line arguments
@@ -32,6 +38,7 @@ public class JJflix {
     public static void main(String[] args) {
         JJflix jjflix = new JJflix();
     }
+    
     
     public void loopButton() {
         for(int i = 0; i < 1000; i++) {
