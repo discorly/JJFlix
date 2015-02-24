@@ -22,6 +22,7 @@ public class JJflix {
     public JJflix() {
         jflx = new NewJFrame();
         jflx.setVisible(true);
+        jflx.setTitle("JJFlix");
     }
     /**
      * @param args the command line arguments

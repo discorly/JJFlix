@@ -26,7 +26,6 @@ public class NewJFrame extends javax.swing.JFrame {
     Mouse mouse = new DesktopMouse();
     ScreenRegion fullScreen = new DesktopScreenRegion();
     List<Target> targets = new ArrayList<Target>();
-    Timer timer = new Timer();
     
     public NewJFrame() {
         initComponents();
@@ -78,7 +77,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         btnStart = new javax.swing.JButton();
-        btnStop = new javax.swing.JButton();
         lblStartStop = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,13 +88,6 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnStop.setText("Stop");
-        btnStop.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopActionPerformed(evt);
-            }
-        });
-
         lblStartStop.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -104,38 +95,38 @@ public class NewJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(163, 163, 163)
+                .addGap(170, 170, 170)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnStart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnStop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblStartStop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(180, Short.MAX_VALUE))
+                    .addComponent(lblStartStop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnStart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(143, Short.MAX_VALUE)
+                .addContainerGap(140, Short.MAX_VALUE)
                 .addComponent(lblStartStop)
-                .addGap(52, 52, 52)
+                .addGap(50, 50, 50)
                 .addComponent(btnStart)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnStop)
-                .addGap(34, 34, 34))
+                .addGap(70, 70, 70))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-        timer.schedule(new checkUpdate(), 0, 5000);
-        lblStartStop.setText("Started!");
-    }//GEN-LAST:event_btnStartActionPerformed
-
-    private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
+        Timer timer = new Timer();
+        
+        if(btnStart.getText().equals("Start")) {
+        timer.schedule(new checkUpdate(), 0, 10000);
+        btnStart.setText("Stop");
+        lblStartStop.setText("Started! ");
+        } else if (btnStart.getText().equals("Stop")) {
         timer.cancel();
-        timer.purge();
-        lblStartStop.setText("Stopped!");
-    }//GEN-LAST:event_btnStopActionPerformed
+        btnStart.setText("Start");
+        lblStartStop.setText("Stopped! ");
+    }
+    }//GEN-LAST:event_btnStartActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,7 +165,6 @@ public class NewJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnStart;
-    private javax.swing.JButton btnStop;
     private javax.swing.JLabel lblStartStop;
     // End of variables declaration//GEN-END:variables
 }
