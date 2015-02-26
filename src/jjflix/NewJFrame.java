@@ -58,6 +58,10 @@ public class NewJFrame extends javax.swing.JFrame {
         Target flixBtn900Fullscreen = new ImageTarget(jflx900full.getAbsoluteFile());
         Target flixBtn1080 = new ImageTarget(jflx1080.getAbsoluteFile());
         Target flixBtn1080Fullscreen = new ImageTarget(jflx1080full.getAbsoluteFile());
+        flixBtn900.setMinScore(0.8);
+        flixBtn900Fullscreen.setMinScore(0.8);
+        flixBtn1080.setMinScore(0.8);
+        flixBtn1080Fullscreen.setMinScore(0.8);
         targets.add(flixBtn900);
         targets.add(flixBtn900Fullscreen);
         targets.add(flixBtn1080);
