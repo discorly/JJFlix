@@ -23,6 +23,7 @@ public class JJflix {
         jflx = new NewJFrame();
         jflx.setVisible(true);
         jflx.setTitle("JJFlix");
+        jflx.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     /**
      * @param args the command line arguments
