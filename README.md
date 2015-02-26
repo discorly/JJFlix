@@ -12,3 +12,14 @@ Languages:
 Swedish
 
 Want features or your language/resolution supported? Message me
+Resolutions:
+
+- 1600x900
+
+- 1920x1080
+
+Languages:
+
+- Swedish
+
+Want features or your language/resolution supported? Message me
