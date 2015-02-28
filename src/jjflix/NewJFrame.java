@@ -24,7 +24,8 @@ import org.sikuli.api.robot.desktop.DesktopMouse;
 public class NewJFrame extends javax.swing.JFrame {
 
     Mouse mouse = new DesktopMouse();
-    ScreenRegion fullScreen = new DesktopScreenRegion();
+    ScreenRegion searchRegion = new DesktopScreenRegion(1100,420,480,400);
+    
     List<Target> targets = new ArrayList<Target>();
     
     public NewJFrame() {
@@ -41,7 +42,7 @@ public class NewJFrame extends javax.swing.JFrame {
     
     public void findButton(Target t) {
         try {
-            ScreenRegion flix = fullScreen.find(t);
+            ScreenRegion flix = searchRegion.find(t);
             mouse.click(flix.getCenter());
             System.out.println("Found");
         } catch(NullPointerException e) {
@@ -58,10 +59,6 @@ public class NewJFrame extends javax.swing.JFrame {
         Target flixBtn900Fullscreen = new ImageTarget(jflx900full.getAbsoluteFile());
         Target flixBtn1080 = new ImageTarget(jflx1080.getAbsoluteFile());
         Target flixBtn1080Fullscreen = new ImageTarget(jflx1080full.getAbsoluteFile());
-        flixBtn900.setMinScore(0.9);
-        flixBtn900Fullscreen.setMinScore(0.9);
-        flixBtn1080.setMinScore(0.9);
-        flixBtn1080Fullscreen.setMinScore(0.9);
         targets.add(flixBtn900);
         targets.add(flixBtn900Fullscreen);
         targets.add(flixBtn1080);
